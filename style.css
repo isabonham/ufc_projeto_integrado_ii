@@ -296,3 +296,51 @@ header nav a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+.gallery {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gallery-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; 
+}
+
+.gallery-item img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.gallery-item h3 {
+    font-size: 1.5rem;
+    color: #0000FF;
+    margin-top: 10px;
+}
+
+.gallery-item p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-column {
+    flex: 1;
+}
