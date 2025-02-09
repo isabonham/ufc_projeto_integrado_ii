@@ -7,12 +7,12 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #0000FF;
+    background-color: #0212ff;
     padding: 15px 20; 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000;
+    z-index: 11a191a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden; 
     height: 80px; 
@@ -35,7 +35,7 @@ header nav {
 }
 
 header nav a {
-    color: #FFFF00;
+    color: #e8ff1a;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -51,8 +51,8 @@ header nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0000FF;
-    color: #FFFF00; 
+    background-color: #0212ff;
+    color: #e8ff1a; 
     padding: 100px 50px 50px; 
     gap: 20px;
     min-height: 400px;
@@ -69,6 +69,7 @@ header nav a:hover {
 }
 
 .hero-content p {
+    color: #eae1d7;
     font-size: 1.2rem;
     margin-bottom: 30px;
     line-height: 1.5;
@@ -76,8 +77,8 @@ header nav a:hover {
 
 .hero-content .btn {
     display: inline-block;
-    background-color: #FFFF00;
-    color: #0000FF;
+    background-color: #e8ff1a;
+    color: #0212ff;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
@@ -86,8 +87,8 @@ header nav a:hover {
 }
 
 .hero-content .btn:hover {
-    background-color: #fff;
-    color: #0000FF;
+    background-color: #eae1d7;
+    color: #0212ff;
 }
 
 .hero-image {
@@ -100,10 +101,10 @@ header nav a:hover {
 }
 
 .about {
-    background-color: #f9f9f9;
+    background-color: #fff;
     padding: 60px 20px;
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: #1a191a;
 }
 
 .about-container {
@@ -146,13 +147,13 @@ header nav a:hover {
 .about-content h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #0000FF;
+    color: #0212ff;
     margin-bottom: 20px;
 }
 
 .about-content p {
     font-size: 1.2rem;
-    color: #555;
+    color: #1a191a;
     line-height: 1.8;
 }
 
@@ -163,17 +164,16 @@ header nav a:hover {
 }
 
 .services h2 {
-    color: #0000FF;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    color: #0212ff;
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 10px;
     padding-left: 30px;
 }
 
 .services h3 {
-    color: #000;
-    font-size: 1rem;
+    color: #1a191a;
+    font-size: 1.5rem;
     margin-bottom: 40px;
     font-weight: 700;
     padding-left: 30px;
@@ -202,7 +202,7 @@ header nav a:hover {
 }
 
 .service-card .icon {
-    background-color: #FFFF00;
+    background-color: #e8ff1a;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -218,21 +218,21 @@ header nav a:hover {
 }
 
 .service-card h4 {
-    font-size: 1.2rem;
-    color: #000;
+    font-size: 1rem;
+    color: #1a191a;
     margin-bottom: 10px;
 }
 
 .service-card p {
     font-size: 0.9rem;
-    color: #555;
+    color: #1a191a;
     margin-bottom: 20px;
 }
 
 .service-card .btn {
     text-decoration: none;
     font-size: 0.9rem;
-    color: #000;
+    color: #1a191a;
     background-color: #fff;
     font-weight: bold;
     display: inline-block;
@@ -244,7 +244,7 @@ header nav a:hover {
 }
 
 .service-card .btn:hover {
-    background-color: #0000ff;
+    background-color: #0212ff;
     color: #fff; 
     transform: scale(1.05);
 }
@@ -271,22 +271,22 @@ header nav a:hover {
 }
 
 .stat p {
-    font-size: 1rem;
-    color: #000;
+    font-size: 0.9rem;
+    color: #1a191a;
     margin-bottom: 10px;
 }
 
 .stat h2 {
     font-size: 2rem;
-    font-weight: bold;
-    color: #0000FF;
+    font-weight: 700;
+    color: #0212ff;
 }
 
 .counter {
     display: inline-block;
     font-size: 2rem;
-    font-weight: bold;
-    color: #0000FF;
+    font-weight: 700;
+    color: #0212ff;
     opacity: 1;
     transform: translateY(0);
     transition: none;
@@ -299,7 +299,7 @@ header nav a:hover {
 
 .gallery {
     padding: 50px 20px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -326,13 +326,13 @@ header nav a:hover {
 
 .gallery-item h3 {
     font-size: 1.5rem;
-    color: #0000FF;
+    color: #1a191a;
     margin-top: 10px;
 }
 
 .gallery-item p {
-    font-size: 1.2rem;
-    color: #555;
+    font-size: 0.9rem;
+    color: #1a191a;
     margin: 5px 0;
 }
 
@@ -374,7 +374,7 @@ header nav a:hover {
   }
   
   .slider-btn {
-    background-color: #ffff00;
+    background-color: #e8ff1a;
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -403,8 +403,8 @@ header nav a:hover {
     z-index: 10;
   }
 
-  .footer {
-    background-color: #0000FF;
+.footer {
+    background-color: #0212ff;
     color: #fff;
     padding: 40px 20px;
     font-family: 'Poppins', sans-serif;
@@ -445,7 +445,7 @@ header nav a:hover {
 
 .footer-links h4, .footer-address h4 {
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .footer-links ul {
@@ -475,4 +475,13 @@ header nav a:hover {
     margin-top: 20px;
     font-size: 0.9rem;
     padding-top: 10px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
