@@ -191,3 +191,51 @@ header nav a:hover {
     color: #fff; 
     transform: scale(1.05);
 }
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.stat {
+    flex: 1;
+    max-width: 200px;
+}
+
+.stat img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.stat h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0000FF;
+}
+
+.counter {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0000FF;
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+}
+
+.stats.visible .counter {
+    opacity: 1;
+    transform: translateY(0);
+}
