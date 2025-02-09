@@ -40,3 +40,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", handleScroll);
 });
+
+
+
+
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+let currentIndex = 0;
+
+// Duplicar as primeiras e últimas slides para criar o efeito de loop
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+slider.appendChild(firstClone);
+slider.insertBefore(lastClone, slides[0]);
+
+const slideWidth = slides[0].offsetWidth + 20; // largura + margem
+
+// Inicializar posição
+slider.style.transform = `translateX(${-slideWidth}px)`;
+
+nextBtn.addEventListener('click', () => {
+  currentIndex++;
+  slider.style.transition = 'transform 0.5s ease-in-out';
+  slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
+
+  if (currentIndex >= slides.length) {
+    setTimeout(() => {
+      slider.style.transition = 'none';
+      currentIndex = 0;
+      slider.style.transform = `translateX(${-slideWidth}px)`;
+    }, 500);
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex--;
+  slider.style.transition = 'transform 0.5s ease-in-out';
+  slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
+
+  if (currentIndex < 0) {
+    setTimeout(() => {
+      slider.style.transition = 'none';
+      currentIndex = slides.length - 1;
+      slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
+    }, 500);
+  }
+});
