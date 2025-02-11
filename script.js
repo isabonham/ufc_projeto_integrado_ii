@@ -1,93 +1,101 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const counters = document.querySelectorAll(".counter");
+  const counters = document.querySelectorAll(".counter");
+  let hasStarted = false; // Impede que o contador rode mais de uma vez
 
-    function startCounter() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            let count = 0;
-            const isYearCounter = counter.closest(".stat").querySelector("p").innerText.includes("Anos");
-            const increment = isYearCounter ? 1 : Math.ceil(target / 80);
-            const intervalTime = isYearCounter ? 400 : 80;
+  function startCounter() {
+      counters.forEach(counter => {
+          const target = +counter.getAttribute("data-target");
+          let count = 0;
+          const isYearCounter = counter.closest(".stat").querySelector("p").innerText.includes("Anos");
+          const increment = isYearCounter ? 1 : Math.ceil(target / 80);
+          const intervalTime = isYearCounter ? 400 : 40; // Reduzi o tempo para deixar mais fluido
 
-            const interval = setInterval(() => {
-                count += increment;
+          const interval = setInterval(() => {
+              count += increment;
 
-                if (count >= target) {
-                    count = target;
-                    clearInterval(interval);
-                }
+              if (count >= target) {
+                  count = target;
+                  clearInterval(interval);
+              }
 
-                counter.innerText = count;
+              counter.innerText = count;
 
-                if (isYearCounter) {
-                    const suffix = count === 1 ? "ano" : "anos";
-                    counter.nextElementSibling.innerText = suffix;
-                }
-            }, intervalTime);
-        });
-    }
+              if (isYearCounter) {
+                  const suffix = count === 1 ? "ano" : "anos";
+                  counter.nextElementSibling.innerText = suffix;
+              }
+          }, intervalTime);
+      });
+  }
 
-    function handleScroll() {
-        const statsSection = document.querySelector(".stats");
-        const sectionPosition = statsSection.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
+  function handleScroll() {
+      const statsSection = document.querySelector(".stats");
+      const sectionPosition = statsSection.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
 
-        if (sectionPosition < screenPosition) {
-            startCounter();
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }
+      if (sectionPosition < screenPosition && !hasStarted) {
+          hasStarted = true;
+          startCounter();
+          window.removeEventListener("scroll", handleScroll);
+      }
+  }
 
-    window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
 });
 
 
 
 
 
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
 
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
 
-// Duplicar as primeiras e últimas slides para criar o efeito de loop
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
+  let currentIndex = 1; // Começa no primeiro slide real
+  let slideWidth = slides[0].offsetWidth + 20; // largura + margem
 
-slider.appendChild(firstClone);
-slider.insertBefore(lastClone, slides[0]);
-
-const slideWidth = slides[0].offsetWidth + 20; // largura + margem
-
-// Inicializar posição
-slider.style.transform = `translateX(${-slideWidth}px)`;
-
-nextBtn.addEventListener('click', () => {
-  currentIndex++;
-  slider.style.transition = 'transform 0.5s ease-in-out';
-  slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
-
-  if (currentIndex >= slides.length) {
-    setTimeout(() => {
-      slider.style.transition = 'none';
-      currentIndex = 0;
-      slider.style.transform = `translateX(${-slideWidth}px)`;
-    }, 500);
+  function updateSlideWidth() {
+      slideWidth = slides[0].offsetWidth + 20;
+      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
   }
+
+  window.addEventListener('resize', updateSlideWidth);
+
+  nextBtn.addEventListener('click', () => {
+      if (currentIndex >= slides.length - 1) return;
+      currentIndex++;
+      slider.style.transition = 'transform 0.5s ease-in-out';
+      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+      if (currentIndex === slides.length - 1) {
+          setTimeout(() => {
+              slider.style.transition = 'none';
+              currentIndex = 1;
+              slider.style.transform = `translateX(${-slideWidth}px)`;
+          }, 500);
+      }
+  });
+
+  prevBtn.addEventListener('click', () => {
+      if (currentIndex <= 0) return;
+      currentIndex--;
+      slider.style.transition = 'transform 0.5s ease-in-out';
+      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+      if (currentIndex === 0) {
+          setTimeout(() => {
+              slider.style.transition = 'none';
+              currentIndex = slides.length - 2;
+              slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+          }, 500);
+      }
+  });
 });
 
-prevBtn.addEventListener('click', () => {
-  currentIndex--;
-  slider.style.transition = 'transform 0.5s ease-in-out';
-  slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
 
-  if (currentIndex < 0) {
-    setTimeout(() => {
-      slider.style.transition = 'none';
-      currentIndex = slides.length - 1;
-      slider.style.transform = `translateX(${-slideWidth * (currentIndex + 1)}px)`;
-    }, 500);
-  }
+document.querySelector(".menu-toggle").addEventListener("click", function() {
+  document.querySelector("nav").classList.toggle("active");
 });

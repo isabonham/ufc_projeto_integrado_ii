@@ -8,11 +8,11 @@ header {
     top: 0;
     width: 100%;
     background-color: #0212ff;
-    padding: 15px 20; 
+    padding: 1px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 11a191a;
+    z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden; 
     height: 80px; 
@@ -45,6 +45,18 @@ header nav a {
 
 header nav a:hover {
     color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #e8ff1a;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
 
 .hero {
@@ -422,7 +434,7 @@ header nav a:hover {
 .footer {
     background-color: #0212ff;
     color: #fff;
-    padding: 40px 20px;
+    padding: 40px 50px;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
 }
@@ -466,7 +478,7 @@ header nav a:hover {
 
 .footer-links ul {
     list-style: none;
-    padding: 0;
+    padding: 0px;
 }
 
 .footer-links ul li {
@@ -500,4 +512,464 @@ header nav a:hover {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    header .logo img {
+        height: 35px;
+        margin: 0; 
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; 
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #0212ff;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-content .btn {
+        padding: 12px 18px;
+    }
+
+    .hero-image {
+        max-width: 90%;
+    }
+
+    .about-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-images img {
+        max-width: 200px;
+        margin-top: 0;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .service-card {
+        max-width: 90%;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .stat {
+        max-width: 90%;
+    }
+
+    .stat h2 {
+        font-size: 2.2rem;
+    }
+
+    .gallery-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .gallery-column {
+        width: 90%;
+    }
+
+    .gallery-item img {
+        max-width: 100%;
+    }
+
+    .gallery-item h4 {
+        font-size: 1.2rem;
+    }
+
+    .slider-container {
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 260px;
+        font-size: 0.9rem;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .slider-btn.prev {
+        left: 5px;
+    }
+
+    .slider-btn.next {
+        right: 5px;
+    }
+
+    .footer {
+        padding: 30px 15px;
+    }
+
+    .footer h4 {
+        font-size: 1rem;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .footer-social a img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .hero-image {
+        max-width: 70%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-images {
+        justify-content: center;
+    }
+
+    .about-content {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .services h2,
+    .services h3 {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .services-container {
+        gap: 50px;
+    }
+
+    .service-card {
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .service-card .icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .service-card .icon img {
+        width: 25px;
+    }
+
+    .stats {
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .stat {
+        max-width: 250px;
+    }
+
+    .stat h2 {
+        font-size: 2.5rem;
+    }
+
+    .gallery h2,
+    .gallery h3 {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .gallery-container {
+        gap: 30px;
+    }
+
+    .gallery-column {
+        gap: 50px;
+    }
+
+    .gallery-item h4 {
+        font-size: 1.3rem;
+    }
+
+    .gallery-item p {
+        font-size: 0.85rem;
+    }
+
+    .slider-container {
+        width: 90%;
+    }
+
+    .slide {
+        min-width: 280px;
+        padding: 15px;
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-container div {
+        min-width: auto;
+    }
+
+    .footer-logo {
+        width: 80px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-social a img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .hero-content .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .about-container {
+        padding: 40px 10px;
+    }
+
+    .about-images img {
+        max-width: 150px;
+    }
+
+    .about-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .services {
+        padding: 40px 10px;
+    }
+
+    .services h2 {
+        font-size: 1.8rem;
+    }
+
+    .services h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-card {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .service-card h4 {
+        font-size: 0.95rem;
+    }
+
+    .service-card p {
+        font-size: 0.85rem;
+    }
+
+    .service-card .btn {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+
+    .stats {
+        padding: 40px 10px;
+    }
+
+    .stat img {
+        width: 40px;
+    }
+
+    .stat h2 {
+        font-size: 2rem;
+    }
+
+    .stat p {
+        font-size: 0.85rem;
+    }
+
+    .gallery {
+        padding: 40px 10px;
+    }
+
+    .gallery h2 {
+        font-size: 1.8rem;
+    }
+
+    .gallery h3 {
+        font-size: 1.3rem;
+    }
+
+    .gallery-column {
+        width: 100%;
+    }
+
+    .gallery-item img {
+        border-radius: 8px;
+    }
+
+    .gallery-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .gallery-item p {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-slider {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .slider-container {
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 240px;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .slider-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 20px 10px;
+    }
+
+    .footer-logo {
+        width: 70px;
+    }
+
+    .footer h4 {
+        font-size: 0.9rem;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+    }
+
+    .footer-social a img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
