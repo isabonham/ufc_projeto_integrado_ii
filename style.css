@@ -15,11 +15,11 @@ header {
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden; 
-    height: 80px; 
+    height: 60px; 
 }
 
 header .logo img {
-    height: 40px;
+    height: 35px;
     width: auto;
     margin-left: 50px; 
     margin-right: 20px; 
@@ -47,26 +47,20 @@ header nav a:hover {
     color: #fff;
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #e8ff1a;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .hero {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0212ff;
     color: #e8ff1a; 
     padding: 100px 50px 50px; 
-    gap: 20px;
     min-height: 400px;
 }
 
@@ -104,7 +98,10 @@ header nav a:hover {
 }
 
 .hero-image {
-    max-width: 40%;
+    position: absolute;
+    margin-top: 10px;
+    right: 50px; /* Ajuste conforme necessário */
+    max-width: 30%;
 }
 
 .hero-image img {
@@ -214,7 +211,7 @@ header nav a:hover {
 }
 
 .service-card .icon {
-    background-color: #e8ff1a;
+    background-color: #0212ff;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -225,7 +222,7 @@ header nav a:hover {
 }
 
 .service-card .icon img {
-    width: 30px;
+    width: 35px;
     height: auto;
 }
 
@@ -376,29 +373,41 @@ header nav a:hover {
 .testimonial-slider {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 50px;
     overflow: hidden;
     position: relative;
+    height: 250px; 
+    margin-bottom: 50px;
 }
-  
+
 .slider-container {
     overflow: hidden;
-    width: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-  
+
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: max-content;
+    gap: 50px;
 }
-  
+
 .slide {
     min-width: 300px;
+    max-width: 400px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
     background-color: #fff;
     margin: 0 10px;
+}
+
+.slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
   
 .slider-btn {
@@ -524,7 +533,7 @@ header nav a:hover {
     }
 
     header .logo img {
-        height: 35px;
+        height: 25px;
         margin: 0; 
     }
 
@@ -533,10 +542,6 @@ header nav a:hover {
         align-items: center;
         gap: 10px; 
         margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block;
     }
 
     nav {
@@ -560,6 +565,43 @@ header nav a:hover {
         display: flex;
     }
 
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #0212ff;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 10px;
+        color: #e8ff1a;
+        text-decoration: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column-reverse; /* Coloca a imagem acima do texto */
+        align-items: center;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        position: relative; /* Garante que o texto não fique sobreposto */
+    }
+    
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -573,7 +615,8 @@ header nav a:hover {
     }
 
     .hero-image {
-        max-width: 90%;
+        max-width: 80%; /* Ajusta o tamanho da imagem */
+        margin-bottom: 20px; /* Espaçamento entre a imagem e o texto */
     }
 
     .about-images {
@@ -637,12 +680,17 @@ header nav a:hover {
     }
 
     .slider-container {
-        width: 100%;
+        width: 95%;
+    }
+
+    .slider {
+        gap: 10px;
     }
 
     .slide {
         min-width: 260px;
         font-size: 0.9rem;
+        padding: 12px;
     }
 
     .slider-btn {
@@ -771,7 +819,7 @@ header nav a:hover {
     }
 
     .slider-container {
-        width: 90%;
+        width: 100%;
     }
 
     .slide {
@@ -934,6 +982,7 @@ header nav a:hover {
 
     .slider-container {
         width: 100%;
+        padding: 0 10px;
     }
 
     .slide {
@@ -971,5 +1020,14 @@ header nav a:hover {
 
     .footer-bottom {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 80%; /* Evita que a imagem fique muito grande */
+        margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+        position: static; /* Remove qualquer posicionamento absoluto */
+        z-index: 0; /* Garante que a imagem fique no fundo */
     }
 }

@@ -47,55 +47,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
 
-  let currentIndex = 1; // Começa no primeiro slide real
-  let slideWidth = slides[0].offsetWidth + 20; // largura + margem
+    let currentIndex = 0;
 
-  function updateSlideWidth() {
-      slideWidth = slides[0].offsetWidth + 20;
-      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-  }
+    function updateSlideWidth() {
+        let slideWidth = slides[0].offsetWidth + 20; // Calcula a largura do slide + margem
+        slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    }
 
-  window.addEventListener('resize', updateSlideWidth);
+    window.addEventListener('resize', updateSlideWidth);
 
-  nextBtn.addEventListener('click', () => {
-      if (currentIndex >= slides.length - 1) return;
-      currentIndex++;
-      slider.style.transition = 'transform 0.5s ease-in-out';
-      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    // Avançar automaticamente os slides
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlideWidth();
+    }
 
-      if (currentIndex === slides.length - 1) {
-          setTimeout(() => {
-              slider.style.transition = 'none';
-              currentIndex = 1;
-              slider.style.transform = `translateX(${-slideWidth}px)`;
-          }, 500);
-      }
-  });
-
-  prevBtn.addEventListener('click', () => {
-      if (currentIndex <= 0) return;
-      currentIndex--;
-      slider.style.transition = 'transform 0.5s ease-in-out';
-      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-
-      if (currentIndex === 0) {
-          setTimeout(() => {
-              slider.style.transition = 'none';
-              currentIndex = slides.length - 2;
-              slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-          }, 500);
-      }
-  });
+    setInterval(nextSlide, 3000); // Troca os slides a cada 3 segundos
 });
+
 
 
 document.querySelector(".menu-toggle").addEventListener("click", function() {
   document.querySelector("nav").classList.toggle("active");
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+    });
+
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+        });
+    });
 });
